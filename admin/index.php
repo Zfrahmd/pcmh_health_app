@@ -84,6 +84,15 @@ $user=mysqli_fetch_assoc($user_result);
             </p>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+        <?php elseif(isset($_SESSION['edit-post-success'])): ?>
+        <div class="alert alert-success alert-dismissible fade show alert-settings" role="alert">
+            <p>
+                <?=$_SESSION['delete-user-success'];
+                unset($_SESSION['delete-user-success']); 
+                ?>
+            </p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <?php endif ?>
             
 <div class="container">
