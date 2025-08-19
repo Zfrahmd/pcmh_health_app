@@ -42,7 +42,7 @@ if(isset($_SESSION['user-id'])) {
     <!-- CUSTOM STYLESHEET -->
     <link rel="stylesheet" href="<?= ROOT_URL ?>css/style.css">
 
-    <script src="./js/main.js"></script> 
+    <script src="<?= ROOT_URL ?>js/main.js"></script> 
 
 </head> 
 <body>
