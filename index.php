@@ -96,7 +96,7 @@ $faqs=mysqli_query($connection,$faqs_query);
             <?php while ($post = mysqli_fetch_assoc($maternal_posts)) : ?>
                 <div class="card">
                     <h5 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h3>
-                    <?= substr($post['body'], 0, 250) ?>...
+                    <?= html_entity_decode(substr($post['body'], 0, 150)) ?>...
                 </div>
             <?php endwhile; ?>
         </div>

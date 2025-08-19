@@ -5,8 +5,8 @@ if(isset($_POST['submit'])){
     $id=filter_var($_POST['id'],FILTER_SANITIZE_NUMBER_INT);
     $is_featured=filter_var($_POST['is_featured'],FILTER_SANITIZE_NUMBER_INT);
     $title=filter_var($_POST['title'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    // $body=filter_var($_POST['body'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $body = $_POST['body'];
+    $body=filter_var($_POST['body'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    // $body = htmlspecialchars($_POST['body'], ENT_QUOTES);
     $previous_thumbnail_name=filter_var($_POST['previous_thumbnail_name'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $category_id=filter_var($_POST['category_id'],FILTER_SANITIZE_NUMBER_INT);
     $thumbnail=$_FILES['thumbnail'];
