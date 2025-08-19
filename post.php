@@ -47,7 +47,7 @@ if(isset($_GET['id'])){
                         <?php endif ?>
                     </div>
                     <div class="post-content clearfix mb-5">
-                        <p><?=$post['body']?></p>
+                        <?= $post['body']?>
                     </div>
                 </div>
             </div>

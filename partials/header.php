@@ -36,14 +36,19 @@ if(isset($_SESSION['user-id'])) {
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
+    <!-- tiny mce editor -->
+    <script src="https://cdn.tiny.cloud/1/l2s3bhs1latl7nilgfs5e1fvdb1bhtiq3v5l1v483i8bgqxs/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+
     <!-- CUSTOM STYLESHEET -->
     <link rel="stylesheet" href="<?= ROOT_URL ?>css/style.css">
+
+    <script src="./js/main.js"></script> 
+
 </head> 
 <body>
     <?php 
     include 'navbar.php';
     ?>
-
 </body>
     
 

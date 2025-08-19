@@ -31,20 +31,42 @@ $faqs=mysqli_query($connection,$faqs_query);
 
 ?>
 
-<section class="section" id="home">
-    <div class="banner">Welcome to the Maternal & Child Health Portal for Sierra Leone!</div>
-    <div style="text-align:center; margin-bottom:2rem;">
-        <h1 style="color: white;">Empowering Mothers and Children for a Healthier Sierra Leone</h1>
-        <p style="color: white;">Access trusted information, resources, and support for every stage of motherhood and childhood.</p>
+<div class="banner">Welcome to the Maternal & Child Health Portal for Sierra Leone!</div>
+<div class="slider">
+  <div class="slide active">
+    <img src="<?= ROOT_URL ?>/img/1.png" class="d-block w-100" alt="...">
+  </div>
+  <div class="slide">
+    <img src="<?= ROOT_URL ?>/img/22.jpg" class="d-block w-100" alt="...">
+  </div>
+  <div class="slide">
+    <img src="<?= ROOT_URL ?>/img/23.jpg" class="d-block w-100" alt="...">
+  </div>
+  <div class="slide">
+    <img src="<?= ROOT_URL ?>/img/25.jpg" class="d-block w-100" alt="...">
+  </div>
+
+  <div style="text-align:center; margin-bottom:2rem;">
+        
     </div>
+  <div class="slider-text">
+    <h1 style=""><strong>Empowering Mothers and Children for a Healthier Sierra Leone</strong></h1>
+    <p style="">Access trusted information, resources, and support for every stage of motherhood and childhood.</p>
     <div class="quick-links">
         <a class="quick-link" href="#maternal">Maternal Health</a>
         <a class="quick-link" href="child.php">Child Health</a>
         <a class="quick-link" href="#articles">Health Tips</a>
         <a class="quick-link" href="#contact">Contact Us</a>
     </div>
-    <div class="banner" style="background:#00bcd4;"><marquee>💡 <b>Health Tip:</b> Wash your hands regularly to prevent infections!</marquee></div>
-</section>
+  </div>
+</div>
+<div class="banner" style="background:#00bcd4;">
+    <marquee>
+        💡 <b>Health Tip:</b> Wash your hands regularly to prevent infections!
+        Drink clean water and eat balanced meals with fruits, vegetables, and local foods to keep mother and child healthy!
+    </marquee>
+</div>
+
 
 <?php  if(isset($_SESSION['add-query-success'])) : ?>
     <div class="alert alert-success alert-dismissible fade show alert-settings" role="alert">
@@ -74,7 +96,7 @@ $faqs=mysqli_query($connection,$faqs_query);
             <?php while ($post = mysqli_fetch_assoc($maternal_posts)) : ?>
                 <div class="card">
                     <h5 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h3>
-                    <p class="post__body" style="min-height: 100px;"><?= substr($post['body'], 0, 150) ?>...</p>
+                    <?= substr($post['body'], 0, 250) ?>...
                 </div>
             <?php endwhile; ?>
         </div>
@@ -83,18 +105,18 @@ $faqs=mysqli_query($connection,$faqs_query);
 
 
 <!-- Health Tips & Articles -->
-<section class="section" id="articles">
+<section class="section" id="articles"> 
     <div class="section-title">Health Tips & Articles</div>
     <div style="text-align:center; margin-bottom:3.5rem;">
-        <input type="text" id="article-search" placeholder="Search articles by keyword or category..." style="padding:0.7rem; width:300px; border-radius:5px; border:1px solid #ccc;">
+        <input type="text" id="article-search" placeholder="Search articles by keyword or category...">
     </div>
     <div class="articles-bg-wrapper" style="position:relative;">
-        <img src="<?= ROOT_URL ?>/img/4.jpg" alt="Health Tips Background" style="position:absolute; left:50%; top:-40px; transform:translateX(-50%); width:100vw; min-width:1200px; height:calc(100% + 80px); object-fit:cover; opacity:0.6; z-index:0; pointer-events:none; border-radius:10px;">
+        <img src="<?= ROOT_URL ?>/img/4.jpg" alt="Health Tips Background">
         <div class="cards" id="article-list">
           <?php while ($post = mysqli_fetch_assoc($health_tips_posts)) : ?>
             <div class="card" data-category="health-tips">
               <h5 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h3>
-              <p class="post__body" style="min-height: 100px;"><?= substr($post['body'], 0, 150) ?>...</p>
+              <?= substr($post['body'], 0, 250) ?>...
             </div>
           <?php endwhile; ?>  
         </div>
@@ -188,5 +210,17 @@ include './partials/footer.php';
             card.style.display = text.includes(val) ? '' : 'none';
         });
     });
+
+  // Slider banner code
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function showNextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  setInterval(showNextSlide, 2500); // change slide every 2.5 seconds
 
 </script>

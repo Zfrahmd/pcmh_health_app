@@ -53,10 +53,10 @@ $odch_child_posts=mysqli_query($connection,$odch_child_query);
 <section class="section" id="maternal">
     <div class="section-title">CHILD ODCH ARTICLES</div>
         <div class="cards">
-            <?php while ($post = mysqli_fetch_assoc($odch_child_posts)) : ?>
+            <?php while ($odpost = mysqli_fetch_assoc($odch_child_posts)) : ?>
                 <div class="card">
-                    <h4 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>?type=child"><?= $post['title'] ?></a></h3>
-                    <p class="post__body" style="min-height: 100px;"><?= substr($post['body'], 0, 150) ?>...</p>
+                    <h4 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $odpost['id'] ?>?type=child"><?= $odpost['title'] ?></a></h3>
+                    <?= htmlspecialchars_decode(stripslashes(substr(($odpost['body']),0, 250))) ?>...                
                 </div>
             <?php endwhile; ?>
         </div>

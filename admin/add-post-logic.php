@@ -4,7 +4,7 @@ require "config/database.php";
 if(isset($_POST['submit'])){
     $author_id=$_SESSION['user-id'];
     $title =filter_var($_POST['title'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $body =filter_var($_POST['body'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $body =$_POST['body'];
     $category_id =filter_var($_POST['category_id'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $is_featured =filter_var($_POST['is_featured'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $thumbnail =$_FILES['thumbnail'];
