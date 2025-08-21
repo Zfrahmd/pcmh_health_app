@@ -34,7 +34,7 @@ if(isset($_GET['id'])){
                 </label>
             </div>
             <?php endif?>
-            <textarea  rows="8" name="body"  placeholder="Body"><?=$post['body']?></textarea>
+            <textarea class="my-tinymce-editor" rows="8" name="body"  placeholder="Body"><?=$post['body']?></textarea>
             
             <div class="form__control">
                 <label for="thumbnail">Add Thumbnail</label>

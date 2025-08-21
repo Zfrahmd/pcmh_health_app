@@ -47,16 +47,6 @@ $queries = mysqli_query($connection,$query);
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php endif ?>
-            <?php if(isset($_SESSION['delete-query-success'])) : ?>
-                <div class="alert alert-success alert-dismissible fade show alert-settings" role="alert">
-                    <p>
-                        <?=$_SESSION['delete-query-success'];
-                        unset($_SESSION['delete-query-success']); 
-                        ?>
-                    </p>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endif ?>
 <div class="container">
   <div class="row my-5">
         <?php include "./partials/sidebar.php"; ?>
@@ -79,7 +69,8 @@ $queries = mysqli_query($connection,$query);
                             <tr>
                                 <td><?= $query["name"] ?></td>
                                 <td><?= $query["email"]  ?> </td>
-                                <td><?= $query["message"]  ?> </td>
+                                 <!-- <td><?#= $query["message"] ?> </td> -->
+                                <td><?= strip_tags(html_entity_decode($query["message"]))?></td>
                                 <td class="text-center"><a href="<?= ROOT_URL ?>admin/delete-query.php?id=<?= $query['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure?');"><i class="fa fa-trash"></i>&nbsp;Delete</a></td>
                             </tr>
                             <?php endwhile ?>

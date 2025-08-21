@@ -157,7 +157,7 @@ $faqs=mysqli_query($connection,$faqs_query);
         <?php while ($faq = mysqli_fetch_assoc($faqs)) : ?>
             <div class="faq">
                 <div class="faq-question"><?= $faq['title'] ?></div>
-                <div class="faq-answer"><?= substr($faq['body'], 0, 150) ?></div>
+                <div class="faq-answer"><?= strip_tags(html_entity_decode(substr($faq['body'], 0, 250))) ?></div>
             </div>
         <?php endwhile; ?>
     </div>
@@ -169,7 +169,7 @@ $faqs=mysqli_query($connection,$faqs_query);
     <form class="contact-form" action="<?= ROOT_URL ?>add-query-logic.php" enctype="multipart/form-data" method="POST">
         <input type="text" name="name" value ="<?= $name ?>" placeholder="Your Name">
         <input type="email" name ="email" value ="<?= $email ?>"  placeholder="Your Email">
-        <textarea  rows="8" name="message"  placeholder="Describe your issue here"><?=$message?></textarea>
+        <textarea rows="8" name="message"  placeholder="Describe your issue here"><?=$message?></textarea>
         <button type="submit" name="submit" class="btn">Send Message</button>
     </form>
 </section>

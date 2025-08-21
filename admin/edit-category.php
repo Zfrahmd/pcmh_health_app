@@ -31,7 +31,7 @@ if(isset($_GET['id'])){
         <form action="<?= ROOT_URL ?>admin/edit-category-logic.php" class="centered_form" enctype="multipart/form-data" method="POST">
             <input type="hidden" value="<?=$category['id']?>" name="id">
             <input class="form-control" type="text" name="title" value ="<?=$category['title']?>" placeholder="Title">
-            <textarea  rows="4" name="description" value = "<?=$category['description']?>"placeholder="Description"><?=$category['description']?></textarea>
+            <textarea rows="4" name="description" value = "<?=$category['description']?>"placeholder="Description"><?=$category['description']?></textarea>
 
             <button class="btn btn-primary" name="submit" type="submit">Update</button>
         </form>
