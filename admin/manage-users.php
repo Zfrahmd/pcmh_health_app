@@ -74,32 +74,34 @@ $users=mysqli_query($connection,$query);
         <div class="col-sm-12 col-md-12 col-lg-9">
             <main class="my-3">
                 <h2>Manage Users</h2>
-                <?php if(mysqli_num_rows($users)>0): ?>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th class="text-center">Is Admin?</th>
-                            <th colspan='2' class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($user=mysqli_fetch_assoc($users)): ?>
-                        <tr>
-                            <td><?= $user["firstname"] . " " . $user['lastname'] ?></td>
-                            <td><?= $user["email"]  ?> </td>
-                            <td class="text-center"><?= $user["is_admin"] ? 'Yes' : 'No'  ?></td>
-                            <td class="text-center"><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp; Edit</a></td>
-                            <td class="text-center"><a href="<?= ROOT_URL ?>admin/delete-post.php?id=<?= $post['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure?');"><i class="fa fa-trash"></i>&nbsp;Delete</a></td>
-                        </tr>
-                        <?php endwhile ?>
-    
-                    </tbody>
-                </table>
-                <?php else : ?>
-                    <div class="alert__message error">No users found</div>
+                <div class="fixed-head-table">
+                    <?php if(mysqli_num_rows($users)>0): ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th class="text-center">Is Admin?</th>
+                                <th colspan='2' class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while($user=mysqli_fetch_assoc($users)): ?>
+                            <tr>
+                                <td><?= $user["firstname"] . " " . $user['lastname'] ?></td>
+                                <td><?= $user["email"]  ?> </td>
+                                <td class="text-center"><?= $user["is_admin"] ? 'Yes' : 'No'  ?></td>
+                                <td class="text-center"><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp; Edit</a></td>
+                                <td class="text-center"><a href="<?= ROOT_URL ?>admin/delete-post.php?id=<?= $post['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure?');"><i class="fa fa-trash"></i>&nbsp;Delete</a></td>
+                            </tr>
+                            <?php endwhile ?>
+        
+                        </tbody>
+                    </table>
+                    <?php else : ?>
+                        <div class="alert__message error">No users found</div>
                     <?php endif?>
+                </div>
             </main>
         </div>
     </div>

@@ -63,31 +63,33 @@ $queries = mysqli_query($connection,$query);
         <div class="col-sm-12 col-md-12 col-lg-9">
             <main class="my-3">
                 <h2>Manage Queries</h2>
-                <?php if(mysqli_num_rows($queries)>0): ?>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Message Body</th>
-                            <th class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($query=mysqli_fetch_assoc($queries)): ?>
-                        <tr>
-                            <td><?= $query["name"] ?></td>
-                            <td><?= $query["email"]  ?> </td>
-                            <td><?= $query["message"]  ?> </td>
-                            <td class="text-center"><a href="<?= ROOT_URL ?>admin/delete-query.php?id=<?= $query['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure?');"><i class="fa fa-trash"></i>&nbsp;Delete</a></td>
-                        </tr>
-                        <?php endwhile ?>
-    
-                    </tbody>
-                </table>
-                <?php else : ?>
-                    <div class="alert__message error">No queries were found</div>
+                <div class="fixed-head-table">
+                    <?php if(mysqli_num_rows($queries)>0): ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message Body</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while($query=mysqli_fetch_assoc($queries)): ?>
+                            <tr>
+                                <td><?= $query["name"] ?></td>
+                                <td><?= $query["email"]  ?> </td>
+                                <td><?= $query["message"]  ?> </td>
+                                <td class="text-center"><a href="<?= ROOT_URL ?>admin/delete-query.php?id=<?= $query['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure?');"><i class="fa fa-trash"></i>&nbsp;Delete</a></td>
+                            </tr>
+                            <?php endwhile ?>
+        
+                        </tbody>
+                    </table>
+                    <?php else : ?>
+                        <div class="alert__message error">No queries were found</div>
                     <?php endif?>
+                </div>
             </main>
         </div>
     </div>
