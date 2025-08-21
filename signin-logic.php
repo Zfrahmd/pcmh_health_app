@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
                 header('location: ' . ROOT_URL . 'admin/index.php');
                 
             }else{
-                $_SESSION['signin'] = "Please check your input";
+                $_SESSION['signin'] = "Email or Password is not correct!";
             }
         }else{
             // $a = mysqli_num_rows($fetch_user_result);

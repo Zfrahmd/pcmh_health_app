@@ -36,10 +36,7 @@ if(isset($_POST["submit"])){
 
         }else{
 
-
             $hashed_password = password_hash($createpassword,PASSWORD_DEFAULT);
-            
-
 
             $user_check_query="SELECT * FROM users WHERE username='$username' OR email ='$email'";
             $user_check_result = mysqli_query($connection, $user_check_query);

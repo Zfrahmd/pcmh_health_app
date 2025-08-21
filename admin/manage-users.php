@@ -8,7 +8,7 @@ if(!isset($_SESSION['user_is_admin'])){
     //destroy all sessions and redirect user to login page
     session_destroy();
 }
-$query="SELECT id,firstname,lastname,username,is_admin FROM users WHERE NOT id='$current_admin_id'";
+$query="SELECT id,firstname,lastname,email,is_admin FROM users WHERE NOT id='$current_admin_id'";
 $users=mysqli_query($connection,$query);
 ?>
 
@@ -79,7 +79,7 @@ $users=mysqli_query($connection,$query);
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Username</th>
+                            <th>Email</th>
                             <th class="text-center">Is Admin?</th>
                             <th colspan='2' class="text-center">Actions</th>
                         </tr>
@@ -88,7 +88,7 @@ $users=mysqli_query($connection,$query);
                         <?php while($user=mysqli_fetch_assoc($users)): ?>
                         <tr>
                             <td><?= $user["firstname"] . " " . $user['lastname'] ?></td>
-                            <td><?= $user["username"]  ?> </td>
+                            <td><?= $user["email"]  ?> </td>
                             <td class="text-center"><?= $user["is_admin"] ? 'Yes' : 'No'  ?></td>
                             <td class="text-center"><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp; Edit</a></td>
                             <td class="text-center"><a href="<?= ROOT_URL ?>admin/delete-post.php?id=<?= $post['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure?');"><i class="fa fa-trash"></i>&nbsp;Delete</a></td>
